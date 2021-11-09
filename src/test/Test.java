@@ -3,13 +3,15 @@ package test;
 import java.util.List;
 
 import practica2.Ejercicio1;
+import practica2.Ejercicio2;
 import us.lsi.common.Files2;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Test1();
+//		Test1();
+		Test2();
 	}
 
 	public static void Test1() {
@@ -27,6 +29,14 @@ public class Test {
 			System.out.println("_____________________________________________________________________________________");
 
 		}
+	}
+
+	public static void Test2() {
+		String[][] matriz = {{"1","2","3","4"},
+							{"5","6","7","8"},
+							{"9","10","11","12"},
+							{"13","14","15","16"}};
+		Ejercicio2.ejercicio2(matriz);
 	}
 
 }
