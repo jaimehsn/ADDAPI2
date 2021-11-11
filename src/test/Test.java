@@ -32,11 +32,17 @@ public class Test {
 	}
 
 	public static void Test2() {
-		String[][] matriz = {{"1","2","3","4"},
-							{"5","6","7","8"},
-							{"9","10","11","12"},
-							{"13","14","15","16"}};
-		Ejercicio2.ejercicio2(matriz);
+		String[][] matriz = { { "1", "2", "3", "4" }, { "5", "6", "7", "8" }, { "9", "10", "11", "12" },
+				{ "13", "14", "15", "16" } };
+//		System.out.print(Ejercicio2.funcionAuxiliar(matriz));
+		for (String[][] sub : Ejercicio2.funcionAuxiliar(matriz)) {
+			for (String[] i : sub) {
+				for (String j : i) {
+					System.out.print(j + "_");
+				}
+			}
+			System.out.print("\n");
+		}
 	}
 
 }
