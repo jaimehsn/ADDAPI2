@@ -11,11 +11,12 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		Test1();
-		Test2();
+//		Test21();
+		Test22();
 	}
 
 	public static void Test1() {
-		List<String> lineas = Files2.linesFromFile("ficheros/PI2Ej1DatosEntrada.txt");
+		List<String> lineas = Files2.linesFromFile("ficheros/PI2Ej1DatosEntrada1.txt");
 		String[] dato;
 		for (String linea : lineas) {
 			dato = linea.split(",");
@@ -31,18 +32,40 @@ public class Test {
 		}
 	}
 
-	public static void Test2() {
-		String[][] matriz = { { "1", "2", "3", "4" }, { "5", "6", "7", "8" }, { "9", "10", "11", "12" },
-				{ "13", "14", "15", "16" } };
-//		System.out.print(Ejercicio2.funcionAuxiliar(matriz));
-		for (String[][] sub : Ejercicio2.funcionAuxiliar(matriz)) {
-			for (String[] i : sub) {
-				for (String j : i) {
-					System.out.print(j + "_");
-				}
+	public static void Test21() {
+
+		List<String> lista = Files2.linesFromFile("ficheros/PI2Ej2DatosEntrada1.txt");
+		String[][] matriz = new String[lista.size()][lista.get(0).split(" ").length];
+
+		for (int i = 0; i < lista.size(); i++) {
+
+			for (int j = 0; j < lista.get(i).split(" ").length; j++) {
+
+				matriz[i][j] = lista.get(i).split(" ")[j].replace("_","").trim();
+
 			}
-			System.out.print("\n");
+
 		}
+		
+		Ejercicio2.ejercicio2Recursivo(matriz);
+	}
+	
+	public static void Test22() {
+
+		List<String> lista = Files2.linesFromFile("ficheros/PI2Ej2DatosEntrada2.txt");
+		String[][] matriz = new String[lista.size()][lista.get(0).split(" ").length];
+
+		for (int i = 0; i < lista.size(); i++) {
+
+			for (int j = 0; j < lista.get(i).split(" ").length; j++) {
+
+				matriz[i][j] = lista.get(i).split(" ")[j].replace("_","").trim();
+
+			}
+
+		}
+		
+		Ejercicio2.ejercicio2Recursivo(matriz);
 	}
 
 }

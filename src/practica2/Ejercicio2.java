@@ -23,14 +23,32 @@ public class Ejercicio2 {
 
 	}
 
-	public static void ejercicio2Recursivo(String[][] matriz) {
-		if (!(matriz.length != matriz[0].length) && (matriz.length + matriz[0].length) % 2 == 0) {
+	public static List<String> ejercicio2Recursivo(String[][] matriz) {
 
-			if (matriz.length >= 2 && matriz[0].length >= 2) {
-				System.out.print(String.format("%s_%s_", matriz[0][0], matriz[0][matriz[0].length - 1]));
-				System.out.print(String.format("%s_%s", matriz[matriz.length - 1][0],
-						matriz[matriz.length - 1][matriz[0].length - 1]));
-				// LLAMADAS RECURSIVAS
+		Integer x = 0;
+		Integer y = 0;
+		Integer I = matriz[0].length;
+		List<String> salida = new ArrayList<>();
+		salida = ejercicio2Recursivo(matriz, x, y, I, salida);
+		return salida;
+
+	}
+
+	private static List<String> ejercicio2Recursivo(String[][] matriz, Integer x, Integer y, Integer I, List<String> salida) {
+
+		if (!(matriz.length != matriz[0].length) && (matriz.length + matriz[0].length) % 2 == 0) {
+			
+			System.out.print(String.format("%s_%s_",  matriz[x][y], matriz[x][y + (I - 1)]));
+			System.out.print(String.format("%s_%s\n", matriz[x + (I - 1)][y], matriz[x + (I - 1)][y + (I - 1)]));
+
+			
+			if (I != 2) {
+				
+				ejercicio2Recursivo(matriz, x, y, I / 2,salida);
+				ejercicio2Recursivo(matriz, x + (I / 2), y, I / 2,salida);
+				ejercicio2Recursivo(matriz, x, y + (I / 2), I / 2,salida);
+				ejercicio2Recursivo(matriz, x + (I / 2), y + (I / 2), I / 2,salida);
+				
 			}
 
 		} else {
@@ -38,41 +56,7 @@ public class Ejercicio2 {
 			System.out.print("Debe ser una matriz 2 elevado a N x 2 elevado a N.");
 
 		}
-	}
-
-	public static List<String[][]> funcionAuxiliar(String[][] matriz) {
-		List<String[][]> matrixList = new ArrayList<String[][]>();
-		String[][] subMatrix = new String[matriz.length / 2][matriz[0].length / 2];
-		// Primer cuadrante
-		for (int i = 0; i < matriz.length / 2; i++) {
-			for (int j = 0; j < matriz[0].length / 2; j++) {
-				subMatrix[i][j] = matriz[i][j];
-			}
-		}
-		matrixList.add(subMatrix);
-		// Segundo cuadrante
-		for (int i = matriz.length / 2; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[0].length / 2; j++) {
-				subMatrix[i - (matriz.length / 2)][j] = matriz[i][j];
-			}
-		}
-		matrixList.add(subMatrix);
-		// Tercer cuadrante
-		for (int i = 0; i < matriz.length / 2; i++) {
-			for (int j = matriz[0].length / 2; j < matriz[0].length; j++) {
-				subMatrix[i][j - (matriz[0].length / 2)] = matriz[i][j];
-			}
-		}
-		matrixList.add(subMatrix);
-		// Cuarto cuadrante
-		for (int i = matriz.length / 2; i < matriz.length - 1; i++) {
-			for (int j = matriz[0].length / 2; j < matriz[0].length; j++) {
-				subMatrix[i - (matriz.length / 2)][j - (matriz[0].length / 2)] = matriz[i][j];
-			}
-		}
-		matrixList.add(subMatrix);
-		return matrixList;
-
+		return null;
 	}
 
 }
