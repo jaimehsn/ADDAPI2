@@ -34,21 +34,21 @@ public class Ejercicio2 {
 
 	}
 
-	private static List<String> ejercicio2Recursivo(String[][] matriz, Integer x, Integer y, Integer I, List<String> salida) {
+	private static List<String> ejercicio2Recursivo(String[][] matriz, Integer x, Integer y, Integer I,
+			List<String> salida) {
 
 		if (!(matriz.length != matriz[0].length) && (matriz.length + matriz[0].length) % 2 == 0) {
-			
-			System.out.print(String.format("%s_%s_",  matriz[x][y], matriz[x][y + (I - 1)]));
-			System.out.print(String.format("%s_%s\n", matriz[x + (I - 1)][y], matriz[x + (I - 1)][y + (I - 1)]));
 
-			
+			salida.add(String.format("%s%s%s%s", matriz[x][y], matriz[x][y + (I - 1)], matriz[x + (I - 1)][y],
+					matriz[x + (I - 1)][y + (I - 1)]));
+
 			if (I != 2) {
 				
-				ejercicio2Recursivo(matriz, x, y, I / 2,salida);
-				ejercicio2Recursivo(matriz, x + (I / 2), y, I / 2,salida);
-				ejercicio2Recursivo(matriz, x, y + (I / 2), I / 2,salida);
-				ejercicio2Recursivo(matriz, x + (I / 2), y + (I / 2), I / 2,salida);
-				
+				salida = ejercicio2Recursivo(matriz, x, y, I / 2, salida);
+				salida = ejercicio2Recursivo(matriz, x + (I / 2), y, I / 2, salida);
+				salida = ejercicio2Recursivo(matriz, x, y + (I / 2), I / 2, salida);
+				salida = ejercicio2Recursivo(matriz, x + (I / 2), y + (I / 2), I / 2, salida);
+
 			}
 
 		} else {
@@ -56,7 +56,7 @@ public class Ejercicio2 {
 			System.out.print("Debe ser una matriz 2 elevado a N x 2 elevado a N.");
 
 		}
-		return null;
+		return salida;
 	}
 
 }
