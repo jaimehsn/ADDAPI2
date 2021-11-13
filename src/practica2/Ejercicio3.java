@@ -21,57 +21,57 @@ public class Ejercicio3 {
 			Boolean flagR, Integer target, HashSet<Integer> setEnteros) {
 
 		if (!flagL || !flagR) {
-			
+
 			if (list.get(target) >= a && list.get(target) < b) {
-				
+
 				if (!flagR) {
-					
+
 					setEnteros.add(list.get(target));
-					
+
 					if (list.get(target + 1) == b) {
-						
+
 						flagR = true;
 						setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target, setEnteros);
-						
+
 					} else {
-						
+
 						setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target + 1, setEnteros);
-						
+
 					}
 
 				} else {
-					
+
 					setEnteros.add(list.get(target));
-					
+
 					if (list.get(target) == a) {
-						
+
 						flagL = true;
 						setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target, setEnteros);
-						
+
 					} else {
-						
+
 						setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target - 1, setEnteros);
-						
+
 					}
-					
+
 				}
 
 			} else {
-				
+
 				if (a < list.get(target) && b <= list.get(target)) {
-					
+
 					target = target / 2;
 					setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target, setEnteros);
-					
+
 				} else {
-					
-					target = (list.size() - target) / 2;
+
+					target = target + ((list.size() - target) / 2);
 					setEnteros = ejercicio3Recursivo(a, b, list, flagL, flagR, target, setEnteros);
-					
+
 				}
-				
+
 			}
-			
+
 		}
 
 		return setEnteros;

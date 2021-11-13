@@ -100,7 +100,7 @@ public class Test {
 		numeros.add(8);
 		numeros.add(9);
 		numeros.add(10);
-		HashSet<Integer> lista = Ejercicio3.ejercicio3Recursivo(4, 7, numeros);
+		HashSet<Integer> lista = Ejercicio3.ejercicio3Recursivo(8, 9, numeros);
 		for(Integer i : lista) {
 			System.out.println(i);
 		}
