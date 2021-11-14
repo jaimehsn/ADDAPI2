@@ -1,7 +1,5 @@
 package practica2;
 
-import java.util.stream.Stream;
-
 public class Ejercicio1 {
 
 	public static String ejercicio1NoFinal(Integer a, Integer b, Integer c) {
@@ -69,8 +67,7 @@ public class Ejercicio1 {
 	}
 
 	public static String ejercicio1Funcional(Integer a, Integer b, Integer c) {
-		Stream.iterate(null, null);
-		return "";
+		return null;
 	}
 
 }
